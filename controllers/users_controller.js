@@ -3,10 +3,19 @@ const User = require('../models/user');
 module.exports.profile = function(req,res){
    //return res.end('<h1>User profile</h1>');
 
-   return res.render("user",{
-       title: "users"
-   });
-}
+  if(req.cookies.user_id){
+      User.findById(req.cookies.user_id, function(err,user){
+          if(user){
+              return res.render('user_profile',{
+                  title: "User profile"
+              });
+
+          }
+
+          return;
+      });
+  }
+   }
 
 // render sign up page
 module.exports.signUp = function(req,res){
