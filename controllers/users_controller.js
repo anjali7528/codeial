@@ -7,14 +7,18 @@ module.exports.profile = function(req,res){
       User.findById(req.cookies.user_id, function(err,user){
           if(user){
               return res.render('user_profile',{
-                  title: "User profile"
+                  title: "User profile",
+                  user: user
               });
 
           }
+        });
+    }
+    else{
+        return res.redirect('/users/sign-in');
+    }
 
-          return;
-      });
-  }
+         
    }
 
 // render sign up page
@@ -60,4 +64,5 @@ module.exports.create = function(req,res){
 //sign in and create the session of the user
 module.exports.createSession =function(req,res){
     //todo later
+    
 }
