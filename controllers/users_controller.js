@@ -64,28 +64,31 @@ module.exports.create = function(req,res){
 
 //sign in and create the session of the user
 module.exports.createSession =function(req,res){
-    //step to authenticate 
-    //find the user
-    User.findOne({email: req.body.email}, function(err,user){
-        if(err){
-             //handle user found
-            console.log('error in creating user while signing in'); 
-            return;
-        }
-            if(user){
-  //>> handle missmatching or passwords which dont match
-  if(user.password != req.body.password){
-    return res.redirect('back');
-  }  
-  //>> handle session creation
-           res.cookie('user_id', user.id);
-           res.redirect('/users/profile');
-            }
-            else{
- //handle user not found
- return res.redirect('back');
-            }
+//     //step to authenticate 
+//     //find the user
+//     User.findOne({email: req.body.email}, function(err,user){
+//         if(err){
+//              //handle user found
+//             console.log('error in creating user while signing in'); 
+//             return;
+//         }
+//             if(user){
+//   //>> handle missmatching or passwords which dont match
+//   if(user.password != req.body.password){
+//     return res.redirect('back');
+//   }  
+//   //>> handle session creation
+//            res.cookie('user_id', user.id);
+//            res.redirect('/users/profile');
+//             }
+//             else{
+//  //handle user not found
+//  return res.redirect('back');
+//             }
         
-    });
-  
+//    console.log('Error in finding user --> Passport');
+//                  return done(err); });
+
+return res.redirect('/');
+
 }
