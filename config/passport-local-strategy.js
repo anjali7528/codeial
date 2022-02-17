@@ -1,13 +1,13 @@
 const req = require('express/lib/request');
 const passport = require('passport');
 
-const localStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/user');
 
 
 // authentication using passport
-passport.use(new localStrategy({
+passport.use(new LocalStrategy({
     usernameField: 'email'
     },
 
