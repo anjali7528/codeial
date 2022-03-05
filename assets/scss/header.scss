@@ -1,12 +1,36 @@
 header{
         background-color: #061c2d;
+        padding: 1%;
+
+        div{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                div{
+                       
+
+                h1{
+                        color: #8ab661;
+                       
+                }
+        }
         
-       
+        div{
+        
 
         ul{
                 color: #8ab661;
                 list-style: none;
-                display: inline;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                 
+                li{
+                      margin: 2px 12px ;
+                      font-size: 2rem;
+                   
+                }
         }
 
         a{
@@ -14,4 +38,5 @@ header{
                 color: #ECDEC3;
         }
 }
-
+}
+}
