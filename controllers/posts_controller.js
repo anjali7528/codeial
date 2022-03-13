@@ -16,12 +16,12 @@ Post.create({
 }
 
 module.exports.destroy = function(req, res){
-    Post.findById(req.paramas.id, function(err, post){
+    Post.findById(req.params.id, function(err, post){
        // .id means toconverting the obj is into string
         if(post.user == req.user.id){
             post.remove();
 
-            Comment.deleteMany({post: req.paramas.id}, function(err){
+            Comment.deleteMany({post: req.params.id}, function(err){
                 return res.redirect('back');
             });
         }
