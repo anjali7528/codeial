@@ -113,12 +113,13 @@ module.exports.createSession =function(req,res){
         
 //    console.log('Error in finding user --> Passport');
 //               return done(err); });
-
+req.flash('success', 'Logged In Successfully');
 return res.redirect('/');
 
 }
 
 module.exports.distroySession = function(req, res){
+    req.flash('success', 'Logged Out Successfully');
   req.logout();
   
     return res.redirect('/');
